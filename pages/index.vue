@@ -29,6 +29,7 @@
     box-sizing: border-box;
     background-position: center;
     background-size: cover;
+    background-image: url('~assets/images/main-page-background.jpg')
   }
 
   .intro h1 {
