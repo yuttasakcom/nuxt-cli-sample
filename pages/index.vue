@@ -5,28 +5,21 @@
     </section>
 
     <section class="featured-posts">
-      <nuxt-link :to="'/posts/' + 1" class="post-preview">
-        <article>
-          <div class="post-thumbnail" style="background-image: url('https://nuxtjs.org/nuxt-views-schema.png')"></div>
-          <div class="post-content">
-            <h1>Post Title</h1>
-            <p>Preview Text</p>
-          </div>
-        </article>
-      </nuxt-link>
-
-      <nuxt-link :to="'/posts/' + 2" class="post-preview">
-        <article>
-          <div class="post-thumbnail" style="background-image: url('https://nuxtjs.org/nuxt-views-schema.png')"></div>
-          <div class="post-content">
-            <h1>Post Title 2</h1>
-            <p>Preview Text 2</p>
-          </div>
-        </article>
-      </nuxt-link>
+      <PostPreview id="1" title="Hello VueJS" previewText="Test 1" thumbnail="https://nuxtjs.org/nuxt-views-schema.png" />
+      <PostPreview id="2" title="Hello NuxtJS" previewText="Test 2" thumbnail="https://nuxtjs.org/nuxt-views-schema.png" />
+      <PostPreview id="3" title="Hello NodeJS" previewText="Test 3" thumbnail="https://nuxtjs.org/nuxt-views-schema.png" />
     </section>
   </div>
 </template>
+
+<script>
+  import PostPreview from '@/components/Posts/PostPreview'
+  export default {
+    components: {
+      PostPreview
+    }
+  }
+</script>
 
 <style scoped>
   .intro {
@@ -66,41 +59,5 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-  }
-
-  .post-preview {
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 2px #ccc;
-    background-color: white;
-    width: 90%;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  @media (min-width: 850px) {
-    .post-preview {
-      width: 400px;
-      margin: 10px;
-    }
-  }
-
-  .post-thumbnail {
-    width: 100%;
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-  }
-
-  .post-content {
-    padding: 10px;
-    text-align: center;
-  }
-
-  a:hover .post-content,
-  a:active .post-content {
-    background-color: #ccc;
   }
 </style>
