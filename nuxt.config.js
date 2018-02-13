@@ -30,7 +30,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [],
+  css: ['~assets/styles/main.css'],
 
   /*
   ** Plugins to load before mounting the App
@@ -50,5 +50,14 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {}
+  },
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-2dc64.firebaseio.com'
+  },
+
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }

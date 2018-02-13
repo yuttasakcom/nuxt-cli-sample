@@ -17,11 +17,7 @@ export default {
   },
   asyncData(ctx) {
     return axios
-      .get(
-        'https://nuxt-blog-2dc64.firebaseio.com/posts/' +
-          ctx.params.postId +
-          '.json'
-      )
+      .get(process.env.baseUrl + '/posts/' + ctx.params.postId + '.json')
       .then(res => {
         return {
           loadedPost: { ...res.data, id: ctx.params.postId }
