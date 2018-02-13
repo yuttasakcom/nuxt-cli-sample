@@ -6,7 +6,7 @@
 
         <section class="existing-posts">
             <h1>Existing Post</h1>
-            <PostList />
+            <PostList isAdmin />
         </section>
     </div>
 </template>
