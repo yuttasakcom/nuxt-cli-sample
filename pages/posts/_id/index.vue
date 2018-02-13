@@ -1,12 +1,12 @@
 <template>
     <div class="single-post-page">
         <section class="post">
-            <h1 class="post-title">{{ loadedPosts.title }}</h1>
+            <h1 class="post-title">{{ loadedPost.title }}</h1>
             <div class="post-details">
-                <div class="post-detail">Last updated on {{ loadedPosts.updatedDate }}</div>
-                <div class="post-detail">Written by {{ loadedPosts.author }}</div>
+                <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>
+                <div class="post-detail">Written by {{ loadedPost.author }}</div>
             </div>
-            <p class="post-content">{{ loadedPosts.content }}</p>
+            <p class="post-content">{{ loadedPost.content }}</p>
         </section>
 
         <section class="post-feedback">
@@ -18,29 +18,21 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   asyncData(ctx) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({
-          loadedPosts: {
-            id: '1',
-            title: 'First Post',
-            previewText: 'P text 1',
-            thumbnailLink: 'https://nuxtjs.org/nuxt-views-schema.png',
-            updatedDate: new Date(),
-            content: 'dummy text',
-            author: 'YoProgrammer'
-          }
-        })
-      }, 1000)
-    })
-      .then(data => {
-        return data
+    return axios
+      .get(
+        'https://nuxt-blog-2dc64.firebaseio.com/posts/' +
+          ctx.params.id +
+          '.json'
+      )
+      .then(res => {
+        return {
+          loadedPost: res.data
+        }
       })
-      .catch(e => {
-        ctx.error(new Error())
-      })
+      .catch(e => ctx.error(e))
   }
 }
 </script>
