@@ -33,6 +33,9 @@ export default {
         }
       })
       .catch(e => ctx.error(e))
+  },
+  head() {
+    return { title: this.loadedPost.title }
   }
 }
 </script>

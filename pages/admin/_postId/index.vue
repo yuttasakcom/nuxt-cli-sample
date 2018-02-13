@@ -29,6 +29,9 @@ export default {
       })
       .catch(e => ctx.error(e))
   },
+  head() {
+    return { title: this.loadedPost.title }
+  },
   methods: {
     onSubmitted(editedPost) {
       this.$store.dispatch('editPost', editedPost).then(() => {
