@@ -7,14 +7,10 @@
 </template>
 
 <script>
-import AdminPostForm from '@/components/Admin/AdminPostForm'
 import axios from 'axios'
 
 export default {
   layout: 'admin',
-  components: {
-    AdminPostForm
-  },
   asyncData(ctx) {
     return axios
       .get(process.env.baseUrl + '/posts/' + ctx.params.postId + '.json')

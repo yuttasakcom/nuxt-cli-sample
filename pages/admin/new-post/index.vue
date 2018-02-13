@@ -7,14 +7,10 @@
 </template>
 
 <script>
-import AdminPostForm from '@/components/Admin/AdminPostForm'
 import axios from 'axios'
 
 export default {
   layout: 'admin',
-  components: {
-    AdminPostForm
-  },
   methods: {
     onSubmitted(postData) {
       this.$store.dispatch('addPost', postData).then(() => {
