@@ -4,7 +4,7 @@
       <h1>Get the latest tech news!</h1>
     </section>
 
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -13,6 +13,29 @@
   export default {
     components: {
       PostList
+    },
+    asyncData(ctx, cb) {
+      setTimeout(() => {
+        cb(null, {
+          loadedPosts: [
+            {
+              id: '1',
+              title: 'First Post',
+              previewText: 'P text 1',
+              thumbnailLink: 'https://nuxtjs.org/nuxt-views-schema.png'
+            },
+            {
+              id: '2',
+              title: 'Second Post',
+              previewText: 'P text 2',
+              thumbnailLink: 'https://nuxtjs.org/nuxt-views-schema.png'
+            }
+          ]
+        })
+      }, 1000)
+    },
+    created() {
+
     }
   }
 </script>
