@@ -4,19 +4,15 @@
       <h1>Get the latest tech news!</h1>
     </section>
 
-    <section class="featured-posts">
-      <PostPreview id="1" title="Hello VueJS" previewText="Test 1" thumbnail="https://nuxtjs.org/nuxt-views-schema.png" />
-      <PostPreview id="2" title="Hello NuxtJS" previewText="Test 2" thumbnail="https://nuxtjs.org/nuxt-views-schema.png" />
-      <PostPreview id="3" title="Hello NodeJS" previewText="Test 3" thumbnail="https://nuxtjs.org/nuxt-views-schema.png" />
-    </section>
+    <PostList />
   </div>
 </template>
 
 <script>
-  import PostPreview from '@/components/Posts/PostPreview'
+  import PostList from '@/components/Posts/PostList'
   export default {
     components: {
-      PostPreview
+      PostList
     }
   }
 </script>
@@ -51,14 +47,5 @@
     .intro h1 {
       font-size: 2rem;
     }
-  }
-
-  .featured-posts {
-    display: flex;
-    padding: 20px;
-    box-sizing: border-box;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
   }
 </style>
