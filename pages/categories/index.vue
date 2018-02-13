@@ -1,5 +1,0 @@
-<template>
-    <div>
-        <div>Categories</div>
-    </div>
-</template>
