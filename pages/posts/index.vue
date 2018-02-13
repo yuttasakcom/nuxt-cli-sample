@@ -10,27 +10,10 @@ export default {
   components: {
     PostList
   },
-  asyncData(ctx, cb) {
-    setTimeout(() => {
-      cb(null, {
-        loadedPosts: [
-          {
-            id: '1',
-            title: 'First Post',
-            previewText: 'P text 1',
-            thumbnailLink: 'https://nuxtjs.org/nuxt-views-schema.png',
-            author: 'YoProgrammer'
-          },
-          {
-            id: '2',
-            title: 'Second Post',
-            previewText: 'P text 2',
-            thumbnailLink: 'https://nuxtjs.org/nuxt-views-schema.png',
-            author: 'YoProgrammer'
-          }
-        ]
-      })
-    }, 1000)
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   }
 }
 </script>
