@@ -4,7 +4,7 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       loadedPosts: [],
-      token: ''
+      token: null
     },
     mutations: {
       setPosts(state, posts) {
@@ -42,7 +42,7 @@ const createStore = () => {
           updatedDate: new Date()
         }
         return this.$axios
-          .$post('/posts.json', createPost)
+          .$post('/posts.json?auth=' + vuexContext.state.token, createPost)
           .then(data => {
             vuexContext.commit('addPost', { ...createPost, id: data.name })
           })
@@ -50,7 +50,10 @@ const createStore = () => {
       },
       editPost(vuexContext, editedPost) {
         return this.$axios
-          .$put('/posts/' + editedPost.id + '.json', editedPost)
+          .$put(
+            '/posts/' + editedPost.id + '.json?auth=' + vuexContext.state.token,
+            editedPost
+          )
           .then(() => {
             vuexContext.commit('editPost', editedPost)
           })
@@ -85,6 +88,9 @@ const createStore = () => {
     getters: {
       loadedPosts({ loadedPosts }) {
         return loadedPosts
+      },
+      isAuthenticated({ token }) {
+        return token != null
       }
     }
   })
