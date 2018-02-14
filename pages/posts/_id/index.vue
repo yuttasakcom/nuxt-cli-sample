@@ -18,14 +18,13 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   asyncData(ctx) {
-    return axios
-      .get(process.env.baseUrl + '/posts/' + ctx.params.id + '.json')
-      .then(res => {
+    return ctx.app.$axios
+      .$get('/posts/' + ctx.params.id + '.json')
+      .then(data => {
         return {
-          loadedPost: res.data
+          loadedPost: data
         }
       })
       .catch(e => ctx.error(e))

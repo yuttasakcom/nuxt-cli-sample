@@ -7,16 +7,14 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   layout: 'admin',
   asyncData(ctx) {
-    return axios
-      .get(process.env.baseUrl + '/posts/' + ctx.params.postId + '.json')
-      .then(res => {
+    return ctx.app.$axios
+      .$get('/posts/' + ctx.params.postId + '.json')
+      .then(data => {
         return {
-          loadedPost: { ...res.data, id: ctx.params.postId }
+          loadedPost: { ...data, id: ctx.params.postId }
         }
       })
       .catch(e => ctx.error(e))
