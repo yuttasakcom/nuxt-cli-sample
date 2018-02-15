@@ -28,17 +28,15 @@ const createStore = () => {
       }
     },
     actions: {
-      nuxtServerInit(vuexContext, context) {
-        return context.app.$axios
-          .$get('/posts.json')
-          .then(data => {
-            const postsArray = []
-            for (const key in data) {
-              postsArray.push({ ...data[key], id: key })
-            }
-            vuexContext.commit('setPosts', postsArray)
-          })
-          .catch()
+      async nuxtServerInit(vuexContext, context) {
+        const posts = await context.app.$axios.$get('/posts.json')
+
+        const postsArray = []
+
+        for (const key in posts) {
+          postsArray.push({ ...posts[key], id: key })
+        }
+        vuexContext.commit('setPosts', postsArray)
       },
       addPost(vuexContext, post) {
         const createPost = {
