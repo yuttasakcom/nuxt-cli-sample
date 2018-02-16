@@ -1,9 +1,5 @@
 <template>
-    <div>
-        <section class="center">
-            <AppButton @click="onLogout" style="margin-left:10px">Logout</AppButton>
-        </section>
-
+   <div class="container">
         <section>
             <PostList isAdmin :posts="loadedPosts" />
         </section>
@@ -22,12 +18,6 @@ export default {
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts
-    }
-  },
-  methods: {
-    onLogout() {
-      this.$store.dispatch('logout')
-      this.$router.push('/admin/auth')
     }
   }
 }

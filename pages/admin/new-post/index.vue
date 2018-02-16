@@ -1,6 +1,6 @@
 <template>
-    <div class="admin-new-post-page">
-        <section class="new-post-form">
+    <div class="container">
+        <section>
             <AdminPostForm @submit="onSubmitted" />
         </section>
     </div>
@@ -20,16 +20,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.new-post-form {
-  width: 90%;
-  margin: 20px auto;
-}
-
-@media (min-width: 768px) {
-  .new-post-form {
-    width: 500px;
-  }
-}
-</style>

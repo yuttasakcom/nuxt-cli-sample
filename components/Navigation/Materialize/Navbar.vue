@@ -12,6 +12,7 @@
                         <nuxt-link to="/posts" tag="li" active-class="active" exact><a>Blog</a></nuxt-link>
                         <nuxt-link to="/about" tag="li" active-class="active"><a>About</a></nuxt-link>
                         <nuxt-link to="/admin" tag="li" active-class="active"><a>Admin</a></nuxt-link>
+                        <li v-if="isAuthenticated"><a @click="onLogout">Logout</a></li>
                     </ul>
                     </div>
                 </div>
@@ -27,9 +28,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   mounted() {
     $('.button-collapse').sideNav()
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated'])
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch('logout')
+      this.$router.push('/admin/auth')
+    }
   }
 }
 </script>

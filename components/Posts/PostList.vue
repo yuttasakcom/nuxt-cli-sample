@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
       <section class="row">
         <PostPreview class="col s12 m4" v-for="post in posts" :key="post.id" :id="post.id" :title="post.title" :previewText="post.previewText" :thumbnail="post.thumbnail"
             :is-admin="isAdmin" />
