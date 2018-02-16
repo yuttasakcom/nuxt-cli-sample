@@ -4,7 +4,7 @@
             <nav class="teal">
                 <div class="container">
                     <div class="nav-wrapper">
-                    <nuxt-link to="/" class="brand-logo">NUXTJS</nuxt-link>
+                    <nuxt-link to="/" class="brand-logo">Nuxt Shop</nuxt-link>
                     <a href="#" data-activates="mobile-nav" class="button-collapse">
                         <i class="material-icons">menu</i>
                     </a>
