@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const webpack = require('webpack')
 
 module.exports = {
   mode: 'universal',
@@ -18,6 +19,22 @@ module.exports = {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Open+Sans'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css'
+      }
+    ],
+    script: [
+      { src: 'https://code.jquery.com/jquery-3.2.1.min.js' },
+      {
+        src:
+          'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js'
       }
     ]
   },
@@ -60,10 +77,10 @@ module.exports = {
   env: {
     baseUrl: process.env.BASE_URL || 'https://nuxt-blog-2dc64.firebaseio.com',
     fbAPIKey: 'AIzaSyCN4OXYGlIMlctSGA8ZeeFm5QXZMBDeZfU'
-  },
-
-  transition: {
-    name: 'fade',
-    mode: 'out-in'
   }
+
+  // transition: {
+  //   name: 'fade',
+  //   mode: 'out-in'
+  // }
 }
