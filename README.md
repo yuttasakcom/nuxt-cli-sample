@@ -2,9 +2,13 @@
 
 > My superb Nuxt.js project
 
+## Demo
+
+[Demo](https://nuxt-shop.herokuapp.com/)
+
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
